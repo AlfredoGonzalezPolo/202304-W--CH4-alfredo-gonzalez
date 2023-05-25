@@ -1,11 +1,11 @@
 // import { useState } from "react";
 import { Info } from "../info/Info";
-import "./App.css";
-
+import { Keyboard } from "../keyboard/Keyboard";
 function App() {
   return (
     <>
       <Info></Info>
+      <Keyboard></Keyboard>
     </>
   );
 }
