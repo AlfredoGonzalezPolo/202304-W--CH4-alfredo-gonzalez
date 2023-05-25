@@ -4,8 +4,12 @@ import { Keyboard } from "../keyboard/Keyboard";
 function App() {
   return (
     <>
-      <Info></Info>
-      <Keyboard></Keyboard>
+      <div className="container">
+        <Info></Info>
+        <main className="phone">
+          <Keyboard></Keyboard>
+        </main>
+      </div>
     </>
   );
 }
