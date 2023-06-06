@@ -1,13 +1,18 @@
 import { useState } from "react";
+import { KeyItem } from "../components/keyboard/key.item";
 
 export function usePhone() {
   const [isCalling, setIsCalling] = useState(false);
   const [phoneNumber, setPhoneNumber] = useState("");
+  const [isActive, setIsActive] = useState(false);
+  const [message, setMessage] = useState<"off" | "message">("off");
+
   function handleChange() {
     if (isCalling === true) {
-      return "message";
+      setMessage("message");
+    } else {
+      setMessage("off");
     }
-    return "off";
   }
 
   function handleCall() {
@@ -15,11 +20,20 @@ export function usePhone() {
     handleChange();
   }
 
+function handleAddNumber (){
+  [...phoneNumber, KeyItem]
+}
+
+function handleClick() {
+  setPhoneNumber(phoneNumber)
+  handleAddNumber()
+}
+
   function handleHang() {
     setIsCalling(true);
     setPhoneNumber("");
     handleChange();
   }
 
-  return { isCalling, phoneNumber, handleCall, handleHang };
+  return { isCalling, message, isActive, phoneNumber, handleCall, handleHang, handleClick, handleAddNumber };
 }
